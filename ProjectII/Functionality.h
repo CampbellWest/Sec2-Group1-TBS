@@ -15,5 +15,5 @@
 //
 //void pickWinner(CARDS* dealer, CARDS* player, int* accountBalance, int* betAmount);
 //
-extern bool Continue();
+//extern bool Continue();
 //void clearBuffer();

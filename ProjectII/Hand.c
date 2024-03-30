@@ -2,19 +2,19 @@
 
 
 
-HAND newHand() {
+HAND NewHand() {
 	HAND h;
 	h.numberOfCards = 0;
 	h.totalCardValue = 0;
-	h.hand_status = NOTBURST;
+	h.hand_status = NOTBUST;
 	return h;
 }
 
-void flushHand(HAND* h) {
-	h->numberOfCards = 0;
-	h->totalCardValue = 0;
-	h->hand_status = NOTBURST;
-}
+//void flushHand(HAND* h) {
+//	h->numberOfCards = 0;
+//	h->totalCardValue = 0;
+//	h->hand_status = NOTBURST;
+//}
 
 //draw card from deck
 bool Draw(HAND* h, DECK* d, int flag, int n) {
@@ -48,7 +48,7 @@ bool Draw(HAND* h, DECK* d, int flag, int n) {
 	if (h->totalCardValue == 21 && h->numberOfCards == 2) { //blackJack
 		h->hand_status = BLACKJACK;
 	}else if (h->totalCardValue > 21)
-		h->hand_status = BURST;
+		h->hand_status = BUST;
 
 	//Card shift animation
 	DrawACardFromDeck_A(h->cards[h->numberOfCards - 1], h->numberOfCards - 1, n);
@@ -61,6 +61,6 @@ int GetNumOfCards(HAND h){
 }
 
 
-int GetTotalCardValue(HAND h) {
+int GetTotalHandValue(HAND h) {
 	return h.totalCardValue;
 }

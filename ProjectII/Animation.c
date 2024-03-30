@@ -21,7 +21,7 @@ void clearScreen(int y, int height, int x, int width) {
     system("cls");
 }
 
-void Screen() {
+void Display() {
     for (int i = 0;i < screen_h;i++) {
 
         for (int j = 0;j < screen_w;j++)
@@ -187,8 +187,8 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
     //
 
 
-    int cardX = 0, cardY = 0;
-    int amount = 1;
+    //int cardX = 0, cardY = 0;
+    //int amount = 1;
     char p = ' ';
     int i = 0;
 
@@ -234,11 +234,13 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
 
 
     // from deck
-    drawing(images[1], 0, 0, 0);
+    drawing_A(images[1], 0, 0, 0);
+
+
     clearScreen(0, CARD_H, 0, screen_w);
 
     // to hand
-    drawing(images[0], 1, num, 15*n);
+    drawing_A(images[0], 1, num, 15*n);
 
     //for (int i = 0; i < 4; i++) {
     //    for (int j = 0; j < 6; j++) {
@@ -281,7 +283,7 @@ void printDeckToScreen(int y, int x) {
 
 
 
-void drawing(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_newline) {
+void drawing_A(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_newline) {
     char p = ' ';
     //int amount = 1;
     int blank_space = 0;
@@ -355,12 +357,18 @@ void drawing(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_n
             printed_h++;
         }
         
-        Screen(screen);
+        Display();
         Sleep(1);
     }
 }
 
 
 
+void overPrint(char* content, int y,  int x, int length) {
 
+    for (int j = 0;j < length;j++) {
+        screen[y][j+x] = content[j];
+    }
+    
+}
 

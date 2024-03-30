@@ -49,8 +49,8 @@ void Menu() {
 void BlackJack() {
 	DECK deck = InitDeck();
 
-	HAND player = newHand();
-	HAND dealer = newHand();
+	HAND player = NewHand();
+	HAND dealer = NewHand();
 
 	char option;
 
@@ -58,18 +58,22 @@ void BlackJack() {
 	int i = 0;
 
 	//dealer first card
-	Draw(&dealer, &deck, 0, 1);
+	char* buffer = "Dealer:\0";
+	overPrint(buffer, CARD_H + 2, 0, strlen(buffer));
+	buffer = "Player:\0";
+	overPrint(buffer, 27 + 2, 0, strlen(buffer));
+	Draw(&dealer, &deck, 0, 1); // 1 for dealer (first card set) 
 
 	//player round
 	while (true) {
 
 		//playerHitsOrStands()
 
-		Draw(&player, &deck, 0,2); // 1 for first player
+		Draw(&player, &deck, 0,2); // 2 for first player
 		//DrawACardFromDeck_A(player.cards[player.numberOfCards - 1], player.numberOfCards - 1);
 
 		//printfHand(player);
-		printf("Your card value: %d\n",player.totalCardValue);
+		printf("Your card value: %d\n", GetTotalHandValue(player));
 		printf("Hit or Stand? (H/S): \n");
 		option = selectOption();
 		if (option == 'H' || option == 'h') 
@@ -78,7 +82,9 @@ void BlackJack() {
 			break;
 	}
 
-	//dealer round
+	Draw(&player, &deck, 0, 3);
+
+	//dealer round - dealer hit module
 
 
 	clearScreen(0,screen_h,0,screen_w);

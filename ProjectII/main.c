@@ -11,11 +11,11 @@ int main() {
 
     Menu();
 
-    srand(time(NULL));
+    //srand(time(NULL));
 
 
-    HAND h = newHand();
-    DECK deck = InitDeck();
+    //HAND h = NewHand();
+    //DECK deck = InitDeck();
 
     //Draw(&h, &deck, 13);
 
