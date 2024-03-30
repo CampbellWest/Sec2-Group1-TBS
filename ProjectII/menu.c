@@ -54,7 +54,7 @@ void BlackJack() {
 
 	char option;
 
-	int x[5] = {1,9,14,50,3};
+	int x[5] = {1,27,23,50,3};
 	int i = 0;
 
 	//dealer first card
@@ -67,12 +67,10 @@ void BlackJack() {
 	//player round
 	while (true) {
 
-		//playerHitsOrStands()
 
-		Draw(&player, &deck, 0,2); // 2 for first player
-		//DrawACardFromDeck_A(player.cards[player.numberOfCards - 1], player.numberOfCards - 1);
+		//Draw(&player, &deck, 0, 2); // 2 for first player
+		Draw(&player, &deck, x[i++], 2); // debug test mode
 
-		//printfHand(player);
 		printf("Your card value: %d\n", GetTotalHandValue(player));
 		printf("Hit or Stand? (H/S): \n");
 		option = selectOption();

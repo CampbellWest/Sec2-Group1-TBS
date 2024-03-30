@@ -47,11 +47,28 @@ bool Draw(HAND* h, DECK* d, int flag, int n) {
 
 	if (h->totalCardValue == 21 && h->numberOfCards == 2) { //blackJack
 		h->hand_status = BLACKJACK;
-	}else if (h->totalCardValue > 21)
-		h->hand_status = BUST;
+	}
+	else if (h->totalCardValue > 21) {
+		int sum = 0;
+		for (int i = 0; i < h->numberOfCards; i++){
+			if (h->cards[i].value == 1)
+				// previous soft Ace go hard
+				sum += 1;
+			else if (h->cards[i].value >= 10) { //10 - 13  J,Q,K
+				sum += 10;
+			}else
+				sum += h->cards[i].value;
+		}
+		h->totalCardValue = sum;
+		if (sum > 21) {  // bust in hard mode
+			h->hand_status = BUST;
+		}
+	}
+		
+		
 
 	//Card shift animation
-	DrawACardFromDeck_A(h->cards[h->numberOfCards - 1], h->numberOfCards - 1, n);
+	DrawACardFromDeck_A(*card, h->numberOfCards - 1, n);
 
 	return true;
 }
