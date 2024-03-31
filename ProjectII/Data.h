@@ -29,6 +29,7 @@ void UpdateFile(User);
 
 bool VerifyName(char[]);
 char* CreateAccountName(void);
+void CreateNewFile(void);
 bool IsFileEmpty(void);
 
 User CreateUserFromFile();

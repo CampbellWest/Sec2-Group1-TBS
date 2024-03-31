@@ -115,8 +115,19 @@ char* CreateAccountName(void)
 	return name;
 }
 
+void CreateNewFile(void) {
+	FILE* fp = fopen("AccountData.txt", "w");
+	if (fp == NULL) {
+		printf("Unable to open file.\n");
+		exit(1);
+	}
+	fclose(fp);
+}
+
+
 bool IsFileEmpty(void)
 {
+	CreateNewFile();
 	FILE* fp = fopen("AccountData.txt", "r");
 	if (fp == NULL) {
 		printf("Unable to open file.\n");

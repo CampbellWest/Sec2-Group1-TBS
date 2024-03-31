@@ -138,9 +138,6 @@
     <ClCompile Include="StreamIO.c" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="AccountBalance.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Betting.h" />
     <ClInclude Include="Cards.h" />
