@@ -91,10 +91,7 @@ void UpdateFile(User player)
 bool VerifyName(char name[])
 {
 	for (int i = 0; i < MAXNAME; i++) {
-		if (name[i] == '\0' || name[i] == '\n')
-			return true;
-
-		else if (isdigit(name[i]))
+		if (isdigit(name[i]))
 			return false;
 	}
 
@@ -123,7 +120,6 @@ void CreateNewFile(void) {
 	}
 	fclose(fp);
 }
-
 
 bool IsFileEmpty(void)
 {
