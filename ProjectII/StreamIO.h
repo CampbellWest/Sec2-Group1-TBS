@@ -32,5 +32,3 @@ bool WriteToOutput(char* buffer, FILE* fp);
 void rmNewline(char* buffer);
 
 bool format_check_letter(char* buffer);
-
-

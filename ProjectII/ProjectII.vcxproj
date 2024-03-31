@@ -128,7 +128,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Animation.c" />
+    <ClCompile Include="Betting.c" />
     <ClCompile Include="Cards.c" />
+    <ClCompile Include="Data.c" />
     <ClCompile Include="Functionality.c" />
     <ClCompile Include="Hand.c" />
     <ClCompile Include="main.c" />
@@ -140,7 +142,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
+    <ClInclude Include="Betting.h" />
     <ClInclude Include="Cards.h" />
+    <ClInclude Include="Data.h" />
     <ClInclude Include="Functionality.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="menu.h" />

@@ -1,21 +1,24 @@
-﻿#include "Cards.h"
+﻿#include <stdio.h>﻿
+#include "Cards.h"
 #include "Hand.h"
 #include "menu.h"
 
 #include "Animation.h"
 
-int main() { 
+int main() {
 
     //TODO
     //login();
 
-    Menu();
+    User player = CreateNewUser();
 
-    srand(time(NULL));
+    Menu(&player);
+
+    //srand(time(NULL));
 
 
-    HAND h = newHand();
-    DECK deck = InitDeck();
+    //HAND h = NewHand();
+    //DECK deck = InitDeck();
 
     //Draw(&h, &deck, 13);
 
@@ -50,7 +53,7 @@ int main() {
         printf("Unable to allocated memory for dealer\n");
         return 1;
     }*/
-        
+
     //do {
 
         //int betAmount = getBetAmount(accountBalance);
@@ -71,53 +74,53 @@ int main() {
             else
                 p->cardsValue[i] = p->cardsForPrint[i];
         }*/
-        
-      /*  updateCardTotal(d);
-        updateCardTotal(p);*/
 
-        //Sleep(1000);
-        //printDealerCards(d);
-       
-        //Sleep(1000);
-        //printTwoCards(p);
-   
+        /*  updateCardTotal(d);
+          updateCardTotal(p);*/
 
-       /* if (!playerHitsOrStands(d, p)) {
-            system("cls");
-            printDealerCards(d);
-            printPlayerHits(p);
-            Sleep(1000);
-            system("cls");
+          //Sleep(1000);
+          //printDealerCards(d);
 
-            printTwoCards(d);
-            printPlayerHits(p);
-            dealerHitsOrStands(d, p);
-        }
-        else {
-            system("cls");
-            printDealerCards(d);
-            printPlayerHits(p);
-            Sleep(1000);
-            system("cls");
+          //Sleep(1000);
+          //printTwoCards(p);
 
-            printTwoCards(d);
-            printPlayerHits(p);
-            Sleep(1000);
-        }
 
-        pickWinner(d, p, &accountBalance, &betAmount);
+         /* if (!playerHitsOrStands(d, p)) {
+              system("cls");
+              printDealerCards(d);
+              printPlayerHits(p);
+              Sleep(1000);
+              system("cls");
 
-        writeAccountBalance(accountBalance);*/
+              printTwoCards(d);
+              printPlayerHits(p);
+              dealerHitsOrStands(d, p);
+          }
+          else {
+              system("cls");
+              printDealerCards(d);
+              printPlayerHits(p);
+              Sleep(1000);
+              system("cls");
 
-    //} while (Continue());
+              printTwoCards(d);
+              printPlayerHits(p);
+              Sleep(1000);
+          }
 
-  /*  writeAccountBalance(accountBalance);
+          pickWinner(d, p, &accountBalance, &betAmount);
 
-    free(p);
-    free(d);*/
+          writeAccountBalance(accountBalance);*/
+
+          //} while (Continue());
+
+        /*  writeAccountBalance(accountBalance);
+
+          free(p);
+          free(d);*/
 
     return 0;
- }
+}
 
 //checking ace 
 //if there is one make 2 variables for 2 totals and if one total is over 21 use the other variable

@@ -4,6 +4,7 @@
 #pragma once
 
 #include"StreamIO.h"
+#include "Betting.h"
+#include "Data.h"
 
-
-void Menu();
+void Menu(User*);

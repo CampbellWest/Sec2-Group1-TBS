@@ -12,8 +12,8 @@ void clearScreen(int y, int height, int x, int width) {
     // For Windows use system("cls");
     //system("clear"); // For Unix/Linux use system("clear");
 
-    for (int i = y;i < height;i++) {
-        for (int j = x;j < width;j++) {
+    for (int i = y; i < height; i++) {
+        for (int j = x; j < width; j++) {
             screen[i][j] = ' ';
         }
     }
@@ -21,10 +21,10 @@ void clearScreen(int y, int height, int x, int width) {
     system("cls");
 }
 
-void Screen() {
-    for (int i = 0;i < screen_h;i++) {
+void Display() {
+    for (int i = 0; i < screen_h; i++) {
 
-        for (int j = 0;j < screen_w;j++)
+        for (int j = 0; j < screen_w; j++)
             printf("%c", screen[i][j]);
 
         printf("\n");
@@ -51,7 +51,7 @@ char blank_card[CARD_H][CARD_W] =
 };
 
 //12x19
-char deck[CARD_H][CARD_W+2] =
+char deck[CARD_H][CARD_W + 2] =
 {
     " ________________ \0",
     "|  __________  |||\0",
@@ -187,8 +187,8 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
     //
 
 
-    int cardX = 0, cardY = 0;
-    int amount = 1;
+    //int cardX = 0, cardY = 0;
+    //int amount = 1;
     char p = ' ';
     int i = 0;
 
@@ -198,7 +198,7 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
     int image_w = CARD_W;
 
     // 15 cards 20 x 20
-    char images[MAXPRINTNUM][IMAGESIZE][IMAGESIZE] = {0};
+    char images[MAXPRINTNUM][IMAGESIZE][IMAGESIZE] = { 0 };
 
 
     for (i = 0; i < image_h; i++) {
@@ -212,7 +212,7 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
             strcpy(images[0][i], hearts_card[i]);
     }
 
-    if (c.value == 1) 
+    if (c.value == 1)
         images[0][1][1] = 'A';
     else if (c.value == 11)
         images[0][1][1] = 'J';
@@ -223,9 +223,10 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
     else if (c.value == 10) {
         images[0][1][1] = '1';
         images[0][1][2] = '0';
-    }else
+    }
+    else
         images[0][1][1] = c.value + 48; //2-9
-        
+
 
     // blank
     for (i = 0; i < image_h; i++) {
@@ -234,11 +235,13 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
 
 
     // from deck
-    drawing(images[1], 0, 0, 0);
+    drawing_A(images[1], 0, 0, 0);
+
+
     clearScreen(0, CARD_H, 0, screen_w);
 
     // to hand
-    drawing(images[0], 1, num, 15*n);
+    drawing_A(images[0], 1, num, 15 * n);
 
     //for (int i = 0; i < 4; i++) {
     //    for (int j = 0; j < 6; j++) {
@@ -258,22 +261,22 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
 
 void printHand(HAND h) {
 
-    for (int i = 0;i < h.numberOfCards;i++);
+    for (int i = 0; i < h.numberOfCards; i++);
 
 
 }
 
 void printCardToScreen(char card[CARD_H][CARD_W], int y, int x) {
-    for (int i = 0;i < CARD_H;i++) { //y
-        for (int j = 0;j < CARD_W;j++) { //x
-            screen[i+y][j+x] = card[i][j];
+    for (int i = 0; i < CARD_H; i++) { //y
+        for (int j = 0; j < CARD_W; j++) { //x
+            screen[i + y][j + x] = card[i][j];
         }
     }
 }
 
 void printDeckToScreen(int y, int x) {
-    for (int i = 0;i < CARD_H;i++) { //y
-        for (int j = 0;j < CARD_W+2;j++) { //x
+    for (int i = 0; i < CARD_H; i++) { //y
+        for (int j = 0; j < CARD_W + 2; j++) { //x
             screen[i + y][j + x] = deck[i][j];
         }
     }
@@ -281,7 +284,7 @@ void printDeckToScreen(int y, int x) {
 
 
 
-void drawing(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_newline) {
+void drawing_A(char image[IMAGESIZE][IMAGESIZE], int to_hand, int cardNum, int num_newline) {
     char p = ' ';
     //int amount = 1;
     int blank_space = 0;
@@ -290,7 +293,7 @@ void drawing(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_n
 
     if (!to_hand) {
         blank_space = 0;
-        
+
     }
     else
         blank_space = screen_w;
@@ -300,7 +303,7 @@ void drawing(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_n
 
 
     while (!is_finished) {
-        
+
 
         if (to_hand) {  //to user
             blank_space--;
@@ -310,7 +313,7 @@ void drawing(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_n
             blank_space++;
             cardNum = 0;
         }
-            
+
 
         int printed_w = 0;
         int printed_h = num_newline;
@@ -319,9 +322,9 @@ void drawing(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_n
             break;
         }
 
-        clearScreen(num_newline, CARD_H,0,CARD_W);
+        clearScreen(num_newline, CARD_H, 0, CARD_W);
 
-        printDeckToScreen(0,0);
+        printDeckToScreen(0, 0);
         int fix_pixel = CARD_W;
 
         for (int i = 0; i < CARD_H; i++) { //row
@@ -336,7 +339,7 @@ void drawing(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_n
                     screen[printed_h][printed_w++] = ' ';
                 }
             }
-  
+
             //for (int j = 0;j < amount;j++) { // amount
             for (int k = 0; k < CARD_W; k++) { // column
                 //p = *(*(image+i)+cardX);
@@ -354,13 +357,18 @@ void drawing(char image[IMAGESIZE][IMAGESIZE],int to_hand,int cardNum, int num_n
             //next line
             printed_h++;
         }
-        
-        Screen(screen);
+
+        Display();
         Sleep(1);
     }
 }
 
 
 
+void overPrint(char* content, int y, int x, int length) {
 
+    for (int j = 0; j < length; j++) {
+        screen[y][j + x] = content[j];
+    }
 
+}

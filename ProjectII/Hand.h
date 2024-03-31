@@ -8,7 +8,7 @@
 //#endif // DEBUG
 
 typedef enum status {
-    BURST, NOTBURST, BLACKJACK
+    BUST, NOTBUST, BLACKJACK
 } HANDSTATUS;
 
 typedef struct hand {
@@ -21,16 +21,16 @@ typedef struct hand {
 
 }HAND;
 
-HAND newHand();
+HAND NewHand();
 
 
 bool Draw(HAND* h, DECK* d, int flag, int);
 
 
-void flushHand(HAND* h);
+//void flushHand(HAND* h);
 
 
 int GetNumOfCards(HAND h);
 
 
-int GetTotalCardValue(HAND h);
+int GetTotalHandValue(HAND h);

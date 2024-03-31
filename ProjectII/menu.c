@@ -3,10 +3,7 @@
 #include "Animation.h"
 #include"menu.h"
 
-
-void BlackJack();
-
-void Menu() {
+void Menu(User* player) {
 	printf(" ********************************** \n");
 	printf("**       Welcome  to\n");
 	printf("**		  BlackJack\n");
@@ -17,6 +14,7 @@ void Menu() {
 
 	do {
 		//PrintDeck();
+
 
 		printf("  **** MAIN ****\n\n");
 
@@ -29,11 +27,11 @@ void Menu() {
 		printf("Enter your Choice: ");
 		switch (choice = selectOption()) {
 		case 'a':
-/*			if (InitWindows(0)) {
-				printf("error: init windows\n");
-			}else	*/	
-			BlackJack();
-			
+			/*			if (InitWindows(0)) {
+							printf("error: init windows\n");
+						}else	*/
+			PlaceBet(player);
+
 
 			break;
 		case 'b':
@@ -42,46 +40,5 @@ void Menu() {
 		}
 
 	} while (choice != 'q');
-
-}
-
-
-void BlackJack() {
-	DECK deck = InitDeck();
-
-	HAND player = newHand();
-	HAND dealer = newHand();
-
-	char option;
-
-	int x[5] = {1,9,14,50,3};
-	int i = 0;
-
-	//dealer first card
-	Draw(&dealer, &deck, 0, 1);
-
-	//player round
-	while (true) {
-
-		//playerHitsOrStands()
-
-		Draw(&player, &deck, 0,2); // 1 for first player
-		//DrawACardFromDeck_A(player.cards[player.numberOfCards - 1], player.numberOfCards - 1);
-
-		//printfHand(player);
-		printf("Your card value: %d\n",player.totalCardValue);
-		printf("Hit or Stand? (H/S): \n");
-		option = selectOption();
-		if (option == 'H' || option == 'h') 
-			continue;
-		if (option == 'S' || option == 's')
-			break;
-	}
-
-	//dealer round
-
-
-	clearScreen(0,screen_h,0,screen_w);
-
 
 }
