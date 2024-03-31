@@ -10,8 +10,6 @@ void Menu(User* player) {
 	printf(" ********************************** \n");
 
 	char choice;
-	char buffer[MAXSIZE];
-
 	do {
 		//PrintDeck();
 
@@ -23,7 +21,7 @@ void Menu(User* player) {
 		printf("a) Quick play\n");
 		printf("b) Check ur profile\n");
 		//printf("c) Change game mode\n");
-		printf("q) Exit\n");
+		printf("q) Quit\n");
 		printf("Enter your Choice: ");
 		switch (choice = selectOption()) {
 		case 'a':
@@ -40,5 +38,4 @@ void Menu(User* player) {
 		}
 
 	} while (choice != 'q');
-
 }

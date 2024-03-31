@@ -46,6 +46,7 @@ void PlaceBet(User* player)
 	unsigned int bet = GetBet(*player);
 	bet *= BlackJack();
 	SetUserBalance(player, bet);
+	UpdateFile(*player);
 }
 
 int BlackJack(void) {

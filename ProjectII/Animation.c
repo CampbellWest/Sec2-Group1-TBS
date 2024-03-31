@@ -370,5 +370,4 @@ void overPrint(char* content, int y, int x, int length) {
     for (int j = 0; j < length; j++) {
         screen[y][j + x] = content[j];
     }
-
 }

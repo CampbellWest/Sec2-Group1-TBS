@@ -157,6 +157,7 @@ User CreateUserFromFile()
 
 	unsigned int balance;
 	fscanf(fp, "%u\n", &balance);
+	fclose(fp);
 
 	User player;
 	UpdateUser(&player, name, balance);
