@@ -1,6 +1,6 @@
 #include "Hand.h"
 
-void dealerHitsOrStands(DECK* deck, HAND* dealer, HAND* player) {
+void dealerHits(DECK* deck, HAND* dealer, HAND* player) {
 
     do {
         if (dealer->totalCardValue >= 17) {
