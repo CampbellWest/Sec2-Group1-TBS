@@ -7,9 +7,8 @@ void dealerHits(DECK* deck, HAND* dealer, HAND* player) {
             return;
         }
 
-        //Draw(dealer, deck, )
-        //print the new cards for dealer 
-        //DRAW A CARD
+        Draw(&dealer, &deck, 0, 1);
+
 
 
     } while (dealer->totalCardValue < 17 || dealer->totalCardValue < player->totalCardValue);

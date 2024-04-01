@@ -36,9 +36,18 @@
     <ClCompile Include="Animation.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="AccountBalance.txt" />
+    <ClCompile Include="Betting.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Data.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DealerHits.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="WinConditions.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functionality.h">
@@ -57,6 +66,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Animation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Betting.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Data.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DealerHits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WinConditions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

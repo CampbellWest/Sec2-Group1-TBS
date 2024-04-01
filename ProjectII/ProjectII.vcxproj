@@ -131,21 +131,25 @@
     <ClCompile Include="Betting.c" />
     <ClCompile Include="Cards.c" />
     <ClCompile Include="Data.c" />
+    <ClCompile Include="DealerHits.c" />
     <ClCompile Include="Functionality.c" />
     <ClCompile Include="Hand.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="menu.c" />
     <ClCompile Include="StreamIO.c" />
+    <ClCompile Include="WinConditions.c" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Betting.h" />
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Data.h" />
+    <ClInclude Include="DealerHits.h" />
     <ClInclude Include="Functionality.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="StreamIO.h" />
+    <ClInclude Include="WinConditions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
