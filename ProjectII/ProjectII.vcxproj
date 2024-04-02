@@ -135,9 +135,6 @@
     <ClCompile Include="main.c" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="AccountBalance.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ClInclude Include="Betting.h" />
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Data.h" />
