@@ -85,10 +85,10 @@ void CreateNewFile(void) {
 
 bool IsFileEmpty(void)
 {
-	CreateNewFile();
 	FILE* fp = fopen("AccountData.txt", "r");
 	if (fp == NULL) {
-		printf("Unable to open file.\n");
+		fclose(fp);
+		CreateNewFile();
 		return false;
 	}
 
