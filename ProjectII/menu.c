@@ -5,9 +5,10 @@
 
 void Menu(User* player) {
 	printf(" ********************************** \n");
-	printf("**       Welcome  to\n");
-	printf("**		  BlackJack\n");
-	printf(" ********************************** \n");
+	printf("**       Welcome, %s\n", GetUsersName(*player));
+	//printf("to");
+	printf("**	  to  BlackJack\n");
+	printf(" ********************************** \n\n");
 
 	char choice;
 	do {

@@ -52,6 +52,7 @@ void PlaceBet(User* player)
 	int balance = GetUserBalance(*player) + bet;
 	SetUserBalance(player, balance);
 	UpdateFile(*player);
+	printf("Your new balance is: %u\n\n", GetUserBalance(*player));
 }
 
 int BlackJack(void) {
@@ -68,7 +69,7 @@ int BlackJack(void) {
 	while (true) {
 
 		printf("Your card value: %d\n", player.totalCardValue);
-		printf("Hit or Stand? (H/S): \n");
+		printf("Hit or Stand? (H/S): ");
 		option = selectOption();
 		if (option == 'H' || option == 'h') {
 			Hit(&player, &deck, 0, 2);
