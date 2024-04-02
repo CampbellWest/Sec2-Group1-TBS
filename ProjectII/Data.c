@@ -22,8 +22,8 @@ void SetUserName(User* player, char name[])
 
 void UpdateUser(User* player, char name[], unsigned int balance)
 {
-	SetUserBalance(player, balance);
 	SetUserName(player, name);
+	SetUserBalance(player, balance);
 }
 
 void SetFileBalance(User player, FILE* fp)
@@ -44,13 +44,9 @@ void UpdateFile(User player)
 		exit(1);
 	}
 
-	char buff[MAXNAME];
-	strncpy(buff, player.name, MAXNAME);
 	SetFileName(player, fp);
-
-	unsigned int balance;
-	fscanf_s(fp, "%d", &balance);
 	SetFileBalance(player, fp);
+
 	fclose(fp);
 }
 

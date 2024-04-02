@@ -7,7 +7,7 @@ void dealerHits(DECK* deck, HAND* dealer, HAND player) {
             return;
         }
 
-        Draw(&dealer, &deck, 0, 1);
+        Draw(dealer, deck, 0, 1);
 
 
 

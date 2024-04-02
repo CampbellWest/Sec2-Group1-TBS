@@ -30,7 +30,6 @@ void Menu(User* player) {
 						}else	*/
 			PlaceBet(player);
 
-
 			break;
 		case 'b':
 
