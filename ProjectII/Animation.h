@@ -11,7 +11,7 @@
 #define CARD_W 17 //16+1
 
 #define screen_w 25
-#define screen_h 60
+#define screen_h 45
 
 #define IMAGESIZE 20
 #define MAXPRINTNUM 15

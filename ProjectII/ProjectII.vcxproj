@@ -132,7 +132,6 @@
     <ClCompile Include="Cards.c" />
     <ClCompile Include="Data.c" />
     <ClCompile Include="DealerHits.c" />
-    <ClCompile Include="Functionality.c" />
     <ClCompile Include="Hand.c" />
     <ClCompile Include="main.c" />
     <ClCompile Include="menu.c" />
@@ -145,7 +144,6 @@
     <ClInclude Include="Cards.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="DealerHits.h" />
-    <ClInclude Include="Functionality.h" />
     <ClInclude Include="Hand.h" />
     <ClInclude Include="menu.h" />
     <ClInclude Include="StreamIO.h" />

@@ -1,6 +1,6 @@
 #include "Hand.h"
 
-void dealerHits(DECK* deck, HAND* dealer, HAND* player) {
+void dealerHits(DECK* deck, HAND* dealer, HAND player) {
 
     do {
         if (dealer->totalCardValue >= 17) {
@@ -11,5 +11,5 @@ void dealerHits(DECK* deck, HAND* dealer, HAND* player) {
 
 
 
-    } while (dealer->totalCardValue < 17 || dealer->totalCardValue < player->totalCardValue);
+    } while (dealer->totalCardValue < 17 || dealer->totalCardValue < player.totalCardValue);
 }

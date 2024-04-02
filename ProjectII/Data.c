@@ -26,72 +26,38 @@ void UpdateUser(User* player, char name[], unsigned int balance)
 	SetUserName(player, name);
 }
 
-unsigned int GetFileBalance(void)
+void SetFileBalance(User player, FILE* fp)
 {
-	FILE* fp = fopen("AccountData.txt", "r");
-	if (fp == NULL) {
-		printf("Unable to read Account Balance\n");
-		exit(1);
-	}
-
-	unsigned int balance;
-	fscanf_s(fp, "%u", &balance);
-	fclose(fp);
-
-	return balance;
+	fprintf(fp, "%d\n", player.balance);
 }
 
-void SetFileBalance(User player)
+void SetFileName(User player, FILE* fp)
 {
-	FILE* fp = fopen("AccountData.txt", "w");
-	if (fp == NULL) {
-		printf("Unable to open file.\n");
-		exit(1);
-	}
-
-	fprintf(fp, "%u\n", player.balance);
-	fclose(fp);
-}
-
-char* GetFileName(void)
-{
-	FILE* fp = fopen("AccountData.txt", "r");
-	if (fp == NULL) {
-		printf("Unable to read Account Balance\n");
-		exit(1);
-	}
-
-	char buff[MAXNAME];
-	fscanf(fp, "%s", &buff);
-	fclose(fp);
-
-	return buff;
-}
-
-void SetFileName(User player)
-{
-	FILE* fp = fopen("AccountData.txt", "w");
-	if (fp == NULL) {
-		printf("Unable to open file.\n");
-		exit(1);
-	}
-	char buff[MAXNAME];
-	strncpy(buff, player.name, MAXNAME);
-
 	fprintf(fp, "%s\n", player.name);
-	fclose(fp);
 }
 
 void UpdateFile(User player)
 {
-	SetFileName(player);
-	SetFileBalance(player);
+	FILE* fp = fopen("AccountData.txt", "w");
+	if (fp == NULL) {
+		printf("Unable to open file.\n");
+		exit(1);
+	}
+
+	char buff[MAXNAME];
+	strncpy(buff, player.name, MAXNAME);
+	SetFileName(player, fp);
+
+	unsigned int balance;
+	fscanf_s(fp, "%d", &balance);
+	SetFileBalance(player, fp);
+	fclose(fp);
 }
 
 bool VerifyName(char name[])
 {
 	for (int i = 0; i < MAXNAME; i++) {
-		if (isdigit(name[i]))
+		if (isdigit(strlen(name)))
 			return false;
 	}
 

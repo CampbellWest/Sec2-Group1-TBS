@@ -9,7 +9,7 @@ int main() {
 
     //TODO
     //login();
-
+    srand(time(NULL));
     User player = CreateNewUser();
 
     Menu(&player);

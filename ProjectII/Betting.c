@@ -1,15 +1,17 @@
 #include "Betting.h"
+#include "DealerHits.h"
 #include "Hand.h"
 #include "StreamIO.h"
+#include "WinConditions.h"
 
 void Hit(HAND* player, DECK* deck, int flag, int n)
 {
 	Draw(player, deck, flag, n);
 }
 
-void Stand(HAND player, HAND* dealer)
+void Stand(DECK* deck, HAND* dealer, HAND player)
 {
-	//DealerHits(player, dealer);
+	dealerHits(deck, dealer, player);
 }
 
 void Split(HAND* player)
@@ -76,10 +78,10 @@ int BlackJack(void) {
 			break;
 	}
 	if (player.hand_status == NOTBUST)
-		Stand(player, &dealer);
+		Stand(&deck, &dealer, player);
 
 	clearScreen(0, screen_h, 0, screen_w);
-	return -1; //WinCondition(player, dealer);
+	return pickWinner(player, dealer);
 }
 //player.balance += blackjack();
 

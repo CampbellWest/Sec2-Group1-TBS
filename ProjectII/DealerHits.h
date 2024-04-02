@@ -2,4 +2,4 @@
 #include "Cards.h"
 #include "Hand.h"
 
-void dealerHits(DECK* deck, HAND* dealer, HAND* player);
+void dealerHits(DECK* deck, HAND* dealer, HAND player);
