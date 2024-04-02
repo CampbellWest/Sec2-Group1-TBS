@@ -6,6 +6,7 @@
 #include <stdbool.h>
 #include <string.h>
 #include "Hand.h"
+#include "StreamIO.h"
 
 #define MAXNAME 25
 #define NEWBALANCE 500
@@ -27,8 +28,6 @@ void UpdateFile(User);
 
 bool VerifyName(char[]);
 char* CreateAccountName(void);
-void CreateNewFile(void);
-bool IsFileEmpty(void);
 
-User CreateUserFromFile();
+User CreateUserFromFile(FILE*);
 User CreateNewUser(void);

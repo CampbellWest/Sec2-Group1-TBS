@@ -28,12 +28,10 @@ void UpdateUser(User* player, char name[], unsigned int balance)
 
 void SetFileBalance(User player, FILE* fp)
 {
-	fprintf(fp, "%d\n", player.balance);
 }
 
 void SetFileName(User player, FILE* fp)
 {
-	fprintf(fp, "%s\n", player.name);
 }
 
 void UpdateFile(User player)
@@ -44,8 +42,8 @@ void UpdateFile(User player)
 		exit(1);
 	}
 
-	SetFileName(player, fp);
-	SetFileBalance(player, fp);
+	fprintf(fp, "%s\n", player.name);
+	fprintf(fp, "%d\n", player.balance);
 
 	fclose(fp);
 }
@@ -66,50 +64,14 @@ char* CreateAccountName(void)
 	do {
 		printf("The name for your account must not include numbers.\n");
 		printf("Please enter a name for your account: ");
-		//scanf_s("%s", name, MAXNAME);
-		fgets(name, MAXNAME, stdin);
-		//clearBuffer();
+		ReadStream(name, MAXNAME, stdin);
 	} while (!VerifyName(name));
 
 	return name;
 }
 
-void CreateNewFile(void) {
-	FILE* fp = fopen("AccountData.txt", "w");
-	if (fp == NULL) {
-		printf("Unable to open file.\n");
-		exit(1);
-	}
-	fclose(fp);
-}
-
-bool IsFileEmpty(void)
+User CreateUserFromFile(FILE* fp)
 {
-	FILE* fp = fopen("AccountData.txt", "r");
-	if (fp == NULL) {
-		fclose(fp);
-		CreateNewFile();
-		return false;
-	}
-
-	fseek(fp, 0, SEEK_END);
-	long int size = ftell(fp);
-	fclose(fp);
-
-	if (size == 0)
-		return true;
-
-	return false;
-}
-
-User CreateUserFromFile()
-{
-	FILE* fp = fopen("AccountData.txt", "r");
-	if (fp == NULL) {
-		printf("Unable to open file.\n");
-		exit(1);
-	}
-
 	char name[MAXNAME];
 	fscanf(fp, "%s\n", &name);
 
@@ -126,8 +88,10 @@ User CreateUserFromFile()
 User CreateNewUser(void)
 {
 	User player;
-	if (!IsFileEmpty()) {
-		player = CreateUserFromFile();
+	FILE* fp = fopen("AccountData.txt", "r");
+	if (fp != NULL) {			// if the fiel is not empty
+		player = CreateUserFromFile(fp);
+		fclose(fp);
 		return player;
 	}
 
@@ -135,5 +99,6 @@ User CreateNewUser(void)
 	strncpy(name, CreateAccountName(), MAXNAME);
 
 	UpdateUser(&player, name, NEWBALANCE);
+	UpdateFile(player);
 	return player;
 }

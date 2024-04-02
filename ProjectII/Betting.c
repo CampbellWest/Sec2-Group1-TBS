@@ -41,13 +41,16 @@ unsigned int GetBet(User player)
 		system("cls");
 
 	} while (!VerifyBet(player, bet));
+
+	return bet;
 }
 
 void PlaceBet(User* player)
 {
-	unsigned int bet = GetBet(*player);
+	int bet = GetBet(*player);
 	bet *= BlackJack();
-	SetUserBalance(player, bet);
+	int balance = GetUserBalance(*player) + bet;
+	SetUserBalance(player, balance);
 	UpdateFile(*player);
 }
 
@@ -81,7 +84,7 @@ int BlackJack(void) {
 		Stand(&deck, &dealer, player);
 
 	clearScreen(0, screen_h, 0, screen_w);
-	return pickWinner(player, dealer);
+	return pickWinner(dealer, player);
 }
 //player.balance += blackjack();
 
