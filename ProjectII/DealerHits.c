@@ -1,10 +1,10 @@
 #include "Hand.h"
 
-void dealerHits(DECK* deck, HAND* dealer, HAND player) {
+bool dealerHits(DECK* deck, HAND* dealer, HAND player) {
 
     do {
         if (dealer->totalCardValue > player.totalCardValue || dealer->totalCardValue >= 17) {
-            return;
+            return true;
         }
 
         Draw(dealer, deck, 0, 1);
