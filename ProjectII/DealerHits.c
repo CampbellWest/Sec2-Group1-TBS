@@ -3,7 +3,7 @@
 void dealerHits(DECK* deck, HAND* dealer, HAND player) {
 
     do {
-        if (dealer->totalCardValue >= 17) {
+        if (dealer->totalCardValue > player.totalCardValue || dealer->totalCardValue >= 17) {
             return;
         }
 
