@@ -22,8 +22,6 @@ char* GetUsersName(User);
 void SetUserName(User*, char[]);
 void UpdateUser(User*, char[], unsigned int);
 
-void SetFileBalance(User, FILE*);
-void SetFileName(User, FILE*);
 void UpdateFile(User);
 
 bool VerifyName(char[]);

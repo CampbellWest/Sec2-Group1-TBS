@@ -26,14 +26,6 @@ void UpdateUser(User* player, char name[], unsigned int balance)
 	SetUserBalance(player, balance);
 }
 
-void SetFileBalance(User player, FILE* fp)
-{
-}
-
-void SetFileName(User player, FILE* fp)
-{
-}
-
 void UpdateFile(User player)
 {
 	FILE* fp = fopen("AccountData.txt", "w");
@@ -62,7 +54,7 @@ char* CreateAccountName(void)
 {
 	char name[MAXNAME];
 	do {
-		printf("The name for your account must not include numbers.\n");
+		printf("The name for your account must not include spaces.\n");
 		printf("Please enter a name for your account: ");
 		ReadStream(name, MAXNAME, stdin);
 	} while (!VerifyName(name));
@@ -89,7 +81,7 @@ User CreateNewUser(void)
 {
 	User player;
 	FILE* fp = fopen("AccountData.txt", "r");
-	if (fp != NULL) {			// if the fiel is not empty
+	if (fp != NULL) {			// if the file is not empty
 		player = CreateUserFromFile(fp);
 		fclose(fp);
 		return player;

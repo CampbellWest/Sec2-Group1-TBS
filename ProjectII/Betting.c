@@ -37,8 +37,7 @@ unsigned int GetBet(User player)
 		char buffer[MAXSIZE];
 		ReadStream(buffer, MAXSIZE, stdin);
 		bet = atoi(buffer);
-		Sleep(500);
-		system("cls");
+		clearScreen(0, screen_h, 0, screen_w);
 
 	} while (!VerifyBet(player, bet));
 
@@ -47,12 +46,22 @@ unsigned int GetBet(User player)
 
 void PlaceBet(User* player)
 {
-	int bet = GetBet(*player);
-	bet *= BlackJack();
-	int balance = GetUserBalance(*player) + bet;
-	SetUserBalance(player, balance);
-	UpdateFile(*player);
-	printf("Your new balance is: %u\n\n", GetUserBalance(*player));
+	char choice;
+	do
+	{
+		clearScreen(0, screen_h, 0, screen_w);
+		int bet = GetBet(*player);
+		bet *= BlackJack();
+		int balance = GetUserBalance(*player) + bet;
+		SetUserBalance(player, balance);
+		UpdateFile(*player);
+
+		printf("Your new balance is: %u\n\n", GetUserBalance(*player));
+		printf("Hit enter to play again or q to quit: ");
+		choice = selectOption();
+		
+	} while (choice != 'q' && choice != 'Q');
+	clearScreen(0, screen_h, 0, screen_w);
 }
 
 int BlackJack(void) {
@@ -84,7 +93,6 @@ int BlackJack(void) {
 	if (player.hand_status == NOTBUST)
 		Stand(&deck, &dealer, player);
 
-	clearScreen(0, screen_h, 0, screen_w);
 	return pickWinner(dealer, player);
 }
 //player.balance += blackjack();

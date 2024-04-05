@@ -5,26 +5,23 @@
 
 void Menu(User* player) {
 	printf(" ********************************** \n");
-	printf("**       Welcome, %s\n", GetUsersName(*player));
+	printf(" **       Welcome, %s\n", GetUsersName(*player));
 	//printf("to");
-	printf("**	  to  BlackJack\n");
+	printf(" **	  to  BlackJack\n");
 	printf(" ********************************** \n\n");
 
-	char choice;
+	char option;
 	do {
-		//PrintDeck();
-
-
 		printf("  **** MAIN ****\n\n");
 
 		//printf("  **** MAIN ****\n\n");
 		//add in do - while loop  --for return NULL
-		printf("a) Quick play\n");
-		printf("b) Check ur profile\n");
+		printf("a) Quick Play\n");
+		printf("b) Account Details\n");
 		//printf("c) Change game mode\n");
 		printf("q) Quit\n");
 		printf("Enter your Choice: ");
-		switch (choice = selectOption()) {
+		switch (option = selectOption()) {
 		case 'a':
 			/*			if (InitWindows(0)) {
 							printf("error: init windows\n");
@@ -33,9 +30,13 @@ void Menu(User* player) {
 
 			break;
 		case 'b':
-
+			clearScreen(0, screen_h, 0, screen_w);
+			printf(" *******************\n * Account Details *\n *******************\n\n");
+			printf("Name: %s\n", GetUsersName(*player));
+			printf("Balance: %d\n\n", GetUserBalance(*player));
+			
 			break;
 		}
 
-	} while (choice != 'q');
+	} while (option != 'q');
 }
