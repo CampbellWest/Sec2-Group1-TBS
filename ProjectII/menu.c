@@ -4,11 +4,11 @@
 #include"menu.h"
 
 void Menu(User* player) {
-	printf(" ********************************** \n");
-	printf(" **       Welcome, %s\n", GetUsersName(*player));
+	printf(" ************************* \n");
+	printf(" * Welcome to Blackjack, *\n");
 	//printf("to");
-	printf(" **	  to  BlackJack\n");
-	printf(" ********************************** \n\n");
+	printf(" *	%s!	 *\n", GetUsersName(*player));
+	printf(" ************************* \n\n");
 
 	char option;
 	do {

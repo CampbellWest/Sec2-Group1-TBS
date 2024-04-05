@@ -9,7 +9,5 @@ void dealerHits(DECK* deck, HAND* dealer, HAND player) {
 
         Draw(dealer, deck, 0, 1);
 
-
-
     } while (dealer->totalCardValue < 17 || dealer->totalCardValue < player.totalCardValue);
 }

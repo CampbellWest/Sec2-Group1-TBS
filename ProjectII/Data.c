@@ -58,7 +58,7 @@ char* CreateAccountName(void)
 		printf("Please enter a name for your account: ");
 		ReadStream(name, MAXNAME, stdin);
 	} while (!VerifyName(name));
-
+	clearScreen(0, screen_h, 0, screen_w);
 	return name;
 }
 
