@@ -28,7 +28,7 @@ namespace BettingUnitTests
 
 			
 			Hit(&player, &deck, 10, 2);		//card value 10
-			Hit(&player, &deck, 10, 2);		//card value 10 
+			Hit(&player, &deck, 11, 2);		//card value 10 
 			Hit(&player, &deck, 1, 2);		//card value 1
 											//10 + 10 + 1 = 21
 			bool result;
@@ -88,7 +88,7 @@ namespace BettingUnitTests
 			HAND player = NewHand();
 
 			Hit(&player, &deck, 10, 2);	//card value 10
-			Hit(&player, &deck, 10, 2);	//card value 10
+			Hit(&player, &deck, 11, 2);	//card value 10
 			Hit(&player, &deck, 2, 2);	//card value 2: 10 + 10 + 2 = 22 = Bust
 
 			bool result;
@@ -109,7 +109,7 @@ namespace BettingUnitTests
 
 			// simulated player hits
 			Hit(&player, &deck, 10, 2);	//card value 10
-			Hit(&player, &deck, 10, 2);	//card value 10
+			Hit(&player, &deck, 11, 2);	//card value 10
 			Hit(&player, &deck, 2, 2);	//card value 2:
 											// 10 + 10 + 2 = 22 : Bust
 
@@ -132,8 +132,8 @@ namespace BettingUnitTests
 			Hit(&player, &deck, 9, 2);	//card value 9
 											// 10 + 9 = 19
 			// simulated dealer hits
-			Hit(&dealer, &deck, 10, 2);	//card value 10
-			Hit(&dealer, &deck, 10, 2);	//card value 10
+			Hit(&dealer, &deck, 11, 2);	//card value 10
+			Hit(&dealer, &deck, 12, 2);	//card value 10
 											// 10 + 10 = 20 -> higher card value
 
 			int result = pickWinner(dealer, player);
@@ -196,7 +196,7 @@ namespace BettingUnitTests
 			Hit(&player, &deck, 14, 2);	//card value 11
 											// 10 + 11 = 21 -> blackjack
 			// simulated dealer hits
-			Hit(&dealer, &deck, 10, 2);	//card value 10
+			Hit(&dealer, &deck, 23, 2);	//card value 10
 			Hit(&dealer, &deck, 8, 2);	//card value 8
 											// 10 + 8 = 18 -> lower card value
 
@@ -217,8 +217,8 @@ namespace BettingUnitTests
 			Hit(&player, &deck, 14, 2);	//card value 11
 											// 10 + 11 = 21 -> blackjack
 			// simulated dealer hits
-			Hit(&dealer, &deck, 10, 2);	//card value 10
-			Hit(&dealer, &deck, 14, 2);	//card value 11
+			Hit(&dealer, &deck, 23, 2);	//card value 10
+			Hit(&dealer, &deck, 1, 2);	//card value 11
 											// 10 + 11 = 21 -> blackjack
 
 			int result = pickWinner(dealer, player);
@@ -235,11 +235,11 @@ namespace BettingUnitTests
 
 			// simulated player hits
 			Hit(&player, &deck, 10, 2);	//card value 10
-			Hit(&player, &deck, 10, 2);	//card value 10
+			Hit(&player, &deck, 11, 2);	//card value 10
 											// 10 + 10 = 20
 			// simulated dealer hits
-			Hit(&dealer, &deck, 10, 2);	//card value 10
-			Hit(&dealer, &deck, 10, 2);	//card value 10
+			Hit(&dealer, &deck, 12, 2);	//card value 10
+			Hit(&dealer, &deck, 13, 2);	//card value 10
 											// 10 + 10 = 20
 
 			int result = pickWinner(dealer, player);

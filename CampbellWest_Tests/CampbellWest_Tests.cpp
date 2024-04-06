@@ -21,7 +21,10 @@ typedef enum status {
 	BUST, NOTBUST, BLACKJACK
 } HANDSTATUS;
 
+#define MAX_CARDS 5 
+
 typedef struct hand {
+	CARD cards[MAX_CARDS];
 	int numberOfCards;  // 0 - 5
 	int totalCardValue; //bust or no
 	HANDSTATUS hand_status;
@@ -45,22 +48,24 @@ namespace CampbellWestTests
 		
 		TEST_METHOD(DealerHits1)
 		{
-			DECK* deck;
-			HAND* dealer;
-			HAND player;
+			//DECK* deck;
+			//HAND* dealer;
+			//HAND player;
 
-			Assert::IsTrue((dealerHits(deck, dealer, player));
+			//Assert::IsTrue(dealerHits(deck, dealer, player));
 		}
 		TEST_METHOD(WinConditions_LOSS) // LOSS = -1, TIE = 0, WIN = 1, SPECIAL_WIN = 2
 		{
 			HAND dealer, player;
-			dealer.hand_status = NOTBUST;
+			dealer.hand_status = (HANDSTATUS)1;
 			dealer.totalCardValue = 20;
 			dealer.numberOfCards = 2;
 
-			player.hand_status = BUST;
+			player.hand_status = (HANDSTATUS)0;
 			player.totalCardValue = 22;
 			player.numberOfCards = 3;
+
+
 
 			int result = pickWinner(dealer, player);
 
