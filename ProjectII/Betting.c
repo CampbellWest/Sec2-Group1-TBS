@@ -71,6 +71,8 @@ int BlackJack(void) {
 	HAND dealer = NewHand();
 
 	//dealer first card
+
+	Draw(&player, &deck, 0, 2);
 	Draw(&dealer, &deck, 0, 1);
 	Draw(&player, &deck, 0, 2);
 
