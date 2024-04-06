@@ -95,19 +95,3 @@ int BlackJack(void) {
 
 	return pickWinner(dealer, player);
 }
-//player.balance += blackjack();
-
-//
-// return -bet if
-// 
-// 
-// 
-// int blackjack(User* player)
-//    returns integer whether win or lose
-// very useful
-// 
-// Pen's draw() function very useful
-// 
-// have blackjack inside placebet()
-// outside placebet() you decide whether to play again, inside while{} loop
-//
