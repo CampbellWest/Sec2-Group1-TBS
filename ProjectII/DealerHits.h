@@ -1,5 +1,8 @@
 #pragma once
+
+#include "stdbool.h"
+
 #include "Cards.h"
 #include "Hand.h"
 
-void dealerHits(DECK* deck, HAND* dealer, HAND player);
+bool dealerHits(DECK* deck, HAND* dealer, HAND player);
