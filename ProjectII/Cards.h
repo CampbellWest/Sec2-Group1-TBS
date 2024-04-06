@@ -1,14 +1,12 @@
 #pragma once
 
+#define _CRT_SECURE_NO_WARNINGS
+
 #include <stdlib.h>
 #include <time.h>
 #include <stdio.h>
 #include <Windows.h>
 #include <stdbool.h>
-
-
-#define _CRT_SECURE_NO_WARNINGS
-
 
 // 1-13 spades
 // 14-26 hearts
@@ -27,7 +25,6 @@ typedef struct card {
     bool inDeck;
 }CARD;
 
-
 typedef struct deck {
     CARD cards[DECKNUM];
 }DECK;
@@ -39,8 +36,6 @@ DECK InitDeck();
 CARD* DrawFromDeck(DECK* d, int flag);
 
 //void ShuffleDeck(DECK*);
-
-
 
 
 //void printPlayerHits(CARDS* player);
