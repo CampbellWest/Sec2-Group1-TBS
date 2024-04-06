@@ -21,6 +21,16 @@ bool Draw(HAND* h, DECK* d, int flag, int n) {
 		return false;
 	}
 
+	if (flag < 0 || flag > 52) {
+		printf("Card num not exist\n");
+		return false;
+	}
+
+	if (flag && !d->cards[flag-1].inDeck) { //draw a card not in deck
+		printf("Card not in deck\n");
+		return false;
+	}
+
 	//method of deck
 	CARD* card = DrawFromDeck(d, flag);
 
