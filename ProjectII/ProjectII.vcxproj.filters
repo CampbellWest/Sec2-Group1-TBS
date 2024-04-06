@@ -18,9 +18,6 @@
     <ClCompile Include="main.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Functionality.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Cards.c">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -48,11 +45,11 @@
     <ClCompile Include="WinConditions.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Colours.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Functionality.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Cards.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -78,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="WinConditions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Colours.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

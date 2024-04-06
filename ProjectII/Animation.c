@@ -131,8 +131,6 @@ char clubs_card[CARD_H][CARD_W] =
     "|______________|\0"
 };
 
-
-
 // 6 x 8 image
 char suits[4][6][8 + 1] =
 {
@@ -185,7 +183,7 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
     if (SetConsoleCursorInfo(fd, &cinfo))
         ;
     //
-
+    
 
     //int cardX = 0, cardY = 0;
     //int amount = 1;

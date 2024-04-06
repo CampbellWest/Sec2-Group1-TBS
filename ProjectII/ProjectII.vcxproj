@@ -130,6 +130,7 @@
     <ClCompile Include="Animation.c" />
     <ClCompile Include="Betting.c" />
     <ClCompile Include="Cards.c" />
+    <ClCompile Include="Colours.c" />
     <ClCompile Include="Data.c" />
     <ClCompile Include="DealerHits.c" />
     <ClCompile Include="Hand.c" />
@@ -142,6 +143,7 @@
     <ClInclude Include="Animation.h" />
     <ClInclude Include="Betting.h" />
     <ClInclude Include="Cards.h" />
+    <ClInclude Include="Colours.h" />
     <ClInclude Include="Data.h" />
     <ClInclude Include="DealerHits.h" />
     <ClInclude Include="Hand.h" />
