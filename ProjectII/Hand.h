@@ -1,6 +1,6 @@
 #pragma once
 
-#include"Cards.h"
+#include "Cards.h"
 #include "Animation.h"
 
 
@@ -12,9 +12,10 @@
 //#endif // DEBUG
 
 typedef enum  mode {
-    DEFAULTMODE, TESTMODE, WINMODE
+    DEFAULTMODE, TESTMODE, WINMODE, SKYNET
 }MODE;
 
+static int mode = DEFAULTMODE;
 
 typedef enum status {
     BUST, NOTBUST, BLACKJACK
@@ -32,8 +33,9 @@ typedef struct hand {
 }HAND;
 
 
-static int mode = DEFAULTMODE;
 void changeDrawMode(int);
+
+int getMode();
 
 HAND NewHand();
 

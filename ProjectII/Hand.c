@@ -21,6 +21,9 @@ void changeDrawMode(int m) {
 	mode = m;
 }
 
+int getMode() {
+	return mode;
+}
 
 
 //draw card from deck

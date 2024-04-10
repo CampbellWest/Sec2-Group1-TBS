@@ -20,9 +20,17 @@ int main(int argc, char* argv[]) {
         //return 0;
         int m = atoi(argv[1]);
         changeDrawMode(m);
+        if (m == SKYNET) {
+            //drawBust();
+            draw_big_image();
+            printf("\n\n    SKYNET AI ACTIVATED\n\n");
+            Sleep(2000);
+            
+        }
     }
 
     Menu(&player, 0); //default mode
+    
 
     return 0;
 }

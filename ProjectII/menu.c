@@ -3,11 +3,11 @@
 #include"menu.h"
 
 void Menu(User* player, int mode) {
-	printf(" ************************* \n");
-	printf(" * Welcome to Blackjack, *\n");
+	printf("  ********************************* \n");
+	printf(" *      Welcome to Blackjack,      *\n");
 	//printf("to");
-	printf(" *	%s!	 *\n", GetUsersName(*player));
-	printf(" ************************* \n\n");
+	printf(" *	    %s!	   \n", GetUsersName(*player));
+	printf("  ********************************* \n\n");
 
 	char option;
 	do {
@@ -36,12 +36,6 @@ void Menu(User* player, int mode) {
 			printf("Name: %s\n", GetUsersName(*player));
 			printf("Balance: %d\n\n", GetUserBalance(*player));
 			
-			break;
-			
-		case 'c':
-			if (mode == TESTMODE) {
-				PlaceBet(player);
-			}
 			break;
 		}
 

@@ -1,6 +1,6 @@
 #include "Betting.h"
 
-void Hit(HAND* player, DECK* deck, int flag, int n)
+bool Hit(HAND* player, DECK* deck, int flag, int n)
 {
 	Draw(player, deck, flag, n);
 }
@@ -77,11 +77,21 @@ int BlackJack(void) {
 		printf("Hit or Stand? (H/S): ");
 		option = selectOption();
 		if (option == 'H' || option == 'h') {
-			Hit(&player, &deck, 0, 2);
-			if (player.hand_status == BUST)
-				break;
-			else
-				continue;
+			if (Hit(&player, &deck, 0, 2)) {
+				if (player.hand_status == BUST) {
+					drawBust();
+					break;
+				}
+				else
+					continue;
+			}
+
+
+			//full hand win 4/10
+			if (player.numberOfCards == MAX_CARDS)
+				return 1;
+				
+
 		}
 		if (option == 'S' || option == 's')
 			break;
