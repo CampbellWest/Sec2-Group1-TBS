@@ -17,9 +17,9 @@ void Menu(User* player, int mode) {
 		//add in do - while loop  --for return NULL
 		printf("a) Quick Play\n");
 		printf("b) Account Details\n");
-		if (mode == TESTMODE) {
-			//printf("c) Change mode\n");
-		}
+		//if (mode == TESTMODE) {
+		//	//printf("c) Change mode\n");
+		//}
 		printf("q) Quit\n");
 		printf("Enter your Choice: ");
 		switch (option = selectOption()) {

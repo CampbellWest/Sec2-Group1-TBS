@@ -78,7 +78,7 @@ int BlackJack(void) {
 		option = selectOption();
 		if (option == 'H' || option == 'h') {
 			if (Hit(&player, &deck, 0, 2)) {
-				if (player.hand_status == BUST) {
+				if (player.hand_status == BUST && getMode() == SKYNET) {
 					drawBust();
 					break;
 				}
@@ -88,9 +88,13 @@ int BlackJack(void) {
 
 
 			//full hand win 4/10
-			if (player.numberOfCards == MAX_CARDS)
+			if (player.numberOfCards == MAX_CARDS) {
+				if (getMode() == SKYNET) {
+					printf("U save our lives from the out-of-control AI,  for which you earn a 100x bonus\n");
+					return 100;
+				}
 				return 1;
-				
+			}
 
 		}
 		if (option == 'S' || option == 's')
