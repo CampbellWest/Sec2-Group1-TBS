@@ -1,8 +1,4 @@
 #include "Betting.h"
-#include "DealerHits.h"
-#include "Hand.h"
-#include "StreamIO.h"
-#include "WinConditions.h"
 
 void Hit(HAND* player, DECK* deck, int flag, int n)
 {
@@ -22,7 +18,7 @@ void Split(HAND* player)
 bool VerifyBet(User player, int bet)
 {
 	if (GetUserBalance(player) < bet || bet <= 0) {
-		printf("Unsufficient balance.\n\n");
+		printf("Insufficient or invalid balance.\n\n");
 		return false;
 	}
 	return true;

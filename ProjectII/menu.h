@@ -6,5 +6,6 @@
 #include"StreamIO.h"
 #include "Betting.h"
 #include "Data.h"
+#include "Animation.h"
 
-void Menu(User*);
+void Menu(User*, int);

@@ -1,9 +1,8 @@
 // main menu - 18 March - Pen
 #include<stdio.h>
-#include "Animation.h"
 #include"menu.h"
 
-void Menu(User* player) {
+void Menu(User* player, int mode) {
 	printf(" ************************* \n");
 	printf(" * Welcome to Blackjack, *\n");
 	//printf("to");
@@ -18,7 +17,9 @@ void Menu(User* player) {
 		//add in do - while loop  --for return NULL
 		printf("a) Quick Play\n");
 		printf("b) Account Details\n");
-		//printf("c) Change game mode\n");
+		if (mode == TESTMODE) {
+			//printf("c) Change mode\n");
+		}
 		printf("q) Quit\n");
 		printf("Enter your Choice: ");
 		switch (option = selectOption()) {
@@ -35,6 +36,12 @@ void Menu(User* player) {
 			printf("Name: %s\n", GetUsersName(*player));
 			printf("Balance: %d\n\n", GetUserBalance(*player));
 			
+			break;
+			
+		case 'c':
+			if (mode == TESTMODE) {
+				PlaceBet(player);
+			}
 			break;
 		}
 
