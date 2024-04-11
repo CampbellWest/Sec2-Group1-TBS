@@ -10,7 +10,8 @@
 #define CARD_H 12
 #define CARD_W 17 //16+1
 
-#define screen_w 25
+//#define screen_w 25
+#define screen_w 22
 #define screen_h 45
 
 #define IMAGESIZE 20

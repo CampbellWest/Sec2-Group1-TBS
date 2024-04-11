@@ -370,7 +370,7 @@ void drawing_A(char image[IMAGESIZE][IMAGESIZE], int to_hand, int cardNum, int n
         }
 
         Display();
-        Sleep(1);
+        //Sleep(1);
     }
 }
 
