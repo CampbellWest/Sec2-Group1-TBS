@@ -1,7 +1,8 @@
-#define _CRT_SECURE_NO_WARNINGS
+﻿#define _CRT_SECURE_NO_WARNINGS
 #include "Animation.h"
 
 char screen[screen_h][screen_w] = { 0 };
+char screenB[screen_h][screen_w*2] = { 0 };
 
 //SCREEN NewScreen() {
 //    SCREEN s = { 0 };
@@ -30,6 +31,18 @@ void Display() {
         printf("\n");
     }
 }
+
+// 4/10
+void DisplayYX(int y, int x) {
+    for (int i = 0; i < y; i++) {
+
+        for (int j = 0; j < x; j++)
+            printf("%c", screenB[i][j]);
+
+        printf("\n");
+    }
+}
+
 
 
 
@@ -357,7 +370,7 @@ void drawing_A(char image[IMAGESIZE][IMAGESIZE], int to_hand, int cardNum, int n
         }
 
         Display();
-        Sleep(1);
+        //Sleep(1);
     }
 }
 
@@ -369,3 +382,130 @@ void overPrint(char* content, int y, int x, int length) {
         screen[y][j + x] = content[j];
     }
 }
+
+
+// 4/10
+char skull[20][45] = {
+"                      :::!~!!!!!:.          \0",
+"                  .xUHWH!! !!?M88WHX:.      \0",
+"                .X*#M@$!!  !X!M$$$$$$WWx:.  \0",
+"               :!!!!!!?H! :!$!$$$$$$$$$$8X: \0",
+"              !!~  ~:~!! :~!$!#$$$$$$$$$$8X:\0",
+"             :!~::!H!<   ~.U$X!?R$$$$$$$$MM!\0",
+"             ~!~!!!!~~ .:XW$$$U!!?$$$$$$RMM!\0",
+"               !:~~~ .:!M\"T#$$$$WX??#MRRMMM!\0",  
+"               ~?WuxiW*`   `\"#$$$$8!!!!??!!!\0",  
+"             :X- M$$$$       `\"T#$T~!8$WUXU~\0",
+"            :%`  ~#$$$m:        ~!~ ?$$$$$$ \0",
+"          :!`.-   ~T$$$$8xx.  .xWW- ~\"\"##*\" \0",
+".....   -~~:<` !    ~?T#$$@@W@*?$$      /`  \0",
+"W$@@M!!! .!~~ !!     .:XUW$W!~ `\"~:    :    \0",  
+"#\"~~`.:x % `!!!H:   !WM$$$$Ti. : .!WUn+!`   \0",
+":::~:!!`:X~ .: ?H.!u \"$$$B$$$!W:U!T$$M~     \0",
+".~~   :X@!.-~   ?@WTWo(\"*$$$W$TH$! `        \0",  
+"Wi.~!X$?!-~    : ?$$$B$Wu(\"**$RM!           \0",
+"$R@i.~~ !     :   ~$$$$$B$$en:``            \0",
+"?MXT@Wx.~    :     ~\"##*$$$$M~              \0"
+};
+
+
+
+/* draw image*/
+void draw_big_image() {
+    //for (int i = 0; i < 20; i++) {
+    //    printf(Skull[i]);
+    //    printf("\n");
+    //}
+
+
+    char p = ' ';
+    //int amount = 1;
+    int blank_space = 50;
+
+    int is_finished = 0;
+    //int is_blank_card = direction;
+
+
+    while (!is_finished) {
+
+
+        blank_space--;
+
+
+        int printed_w = 0;
+        int printed_h = 0;
+
+        if (blank_space < 0) {
+            break;
+        }
+
+        clearScreen(0, CARD_H, 0, CARD_W);
+
+
+        for (int i = 0; i < 20; i++) { //row
+
+            printed_w = 0;
+
+            for (int j = 0; j < blank_space; j++) {
+                //if (screen[printed_h][printed_w] != ' ' && screen[printed_h][printed_w] != '\0' && printed_w <= fix_pixel) {
+                //    printed_w++; //skip exist none-space pixel
+                //}
+                //else {
+                screenB[printed_h][printed_w++] = ' ';
+                //}
+            }
+
+            //for (int j = 0;j < amount;j++) { // amount
+            for (int k = 0; k < 45; k++) { // column
+                //p = *(*(image+i)+cardX);
+
+                // next pixel of screen
+                p = skull[i][k];
+
+                //out of screen
+                if (printed_w < screen_w*2) {
+                    //printf("%c", p);
+                    screenB[printed_h][printed_w++] = p;
+                }
+            }
+            //}
+            //next line
+            printed_h++;
+        }
+
+        DisplayYX(20,50);
+        Sleep(1);
+    }
+}
+
+#define BOMB 10
+
+char nuclear[BOMB][44] = {
+"              _. - ^ ^-- - ....,,-- - _   \n", 
+"           _--                  --_       \n", 
+"          <          BUST!>)              \n",
+"           \\._                   _. /     \n",    
+"              ```- - . . ,; .--'''        \n",
+"                    | |   |               \n",  
+"                 . -= ||  | |= -.         \n", 
+"                 `- = #$ % &%$# = -'      \n", 
+"                    | ;  : |              \n",
+"           _____.,-# % &$@ % # & #~,._____\n"
+};
+
+
+void drawBust() {
+    Sleep(500);
+    clearScreen(0,0,0,0);
+
+    for (int i = BOMB-1;i >= 0;i--) {
+        clearScreen(0, 0, 0, 0);
+
+        for (int j = 0; j < i; j++)
+            printf("\n");
+        for (int k = 0; k < BOMB - i; k++)
+            printf(nuclear[k]);
+        Sleep(200);
+    }
+}
+

@@ -1,15 +1,26 @@
 #pragma once
 
-#include"Cards.h"
+#include "Cards.h"
 #include "Animation.h"
+
+
+#define CARDSHARK {1,10,11,12,13}
+
 
 //#ifdef GAMEMODE == 1
 #define MAX_CARDS 5  //A hand can has max 5 cards
 //#endif // DEBUG
 
+typedef enum  mode {
+    DEFAULTMODE, TESTMODE, WINMODE, SKYNET
+}MODE;
+
+static int mode = DEFAULTMODE;
+
 typedef enum status {
     BUST, NOTBUST, BLACKJACK
 } HANDSTATUS;
+
 
 typedef struct hand {
     //int cardsForPrint[MAX_CARDS];
@@ -20,6 +31,11 @@ typedef struct hand {
     HANDSTATUS hand_status;
 
 }HAND;
+
+
+void changeDrawMode(int);
+
+int getMode();
 
 HAND NewHand();
 

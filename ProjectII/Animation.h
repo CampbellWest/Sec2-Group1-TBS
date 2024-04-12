@@ -11,6 +11,7 @@
 #define CARD_W 17 //16+1
 
 #define screen_w 25
+//#define screen_w 22
 #define screen_h 45
 
 #define IMAGESIZE 20
@@ -35,8 +36,13 @@ int DrawACardFromDeck_A(CARD c, int, int);
 void drawing_A(char image[IMAGESIZE][IMAGESIZE], int to_hand, int, int);
 
 void Display();
+void DisplayYX(int, int);
 
 //Overlay
 void overPrint(char*, int y, int x, int length);
 
 //int InitWindows(int mode);
+
+void draw_big_image();
+
+void drawBust();

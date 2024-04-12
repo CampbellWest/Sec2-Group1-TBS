@@ -1,5 +1,7 @@
 #include "Hand.h"
 
+
+
 HAND NewHand() {
 	HAND h;
 	h.numberOfCards = 0;
@@ -14,8 +16,18 @@ HAND NewHand() {
 //	h->hand_status = NOTBURST;
 //}
 
+//change a static global value
+void changeDrawMode(int m) {
+	mode = m;
+}
+
+int getMode() {
+	return mode;
+}
+
+
 //draw card from deck
-bool Draw(HAND* h, DECK* d, int flag, int n) {
+bool DrawWithMode(HAND* h, DECK* d, int flag, int n) {
 	if (GetNumOfCards(*h) == MAX_CARDS) {
 		printf("Full hand, cannot draw anymore\n");
 		return false;
@@ -78,6 +90,26 @@ bool Draw(HAND* h, DECK* d, int flag, int n) {
 
 	return true;
 }
+
+
+bool Draw(HAND* h, DECK* d, int flag, int n) {
+	if (mode == TESTMODE) {  //dealer always have large card
+		//printf("testing\n");
+		if (n == 1) { //dealer
+			int arr[] = CARDSHARK;
+			flag = arr[rand() % 5] + 13*(rand()%4);
+		}
+	}
+	else if(mode == WINMODE){  //player always have large card
+		if (n > 1) { //player
+			int arr[] = CARDSHARK;
+			flag = arr[rand() % 5] + 13 * (rand() % 4);
+		}
+	}
+	return DrawWithMode(h, d, flag, n);
+}
+
+
 
 int GetNumOfCards(HAND h) {
 	return h.numberOfCards;
