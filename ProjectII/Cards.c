@@ -8,7 +8,6 @@ CARD newCard(int value, SUIT suit) {
     return c;
 }
 
-
 DECK InitDeck() {
     DECK d = { 0 };
     //52 card

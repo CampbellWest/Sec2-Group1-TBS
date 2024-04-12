@@ -37,7 +37,6 @@ CARD* DrawFromDeck(DECK* d, int flag);
 
 //void ShuffleDeck(DECK*);
 
-
 //void printPlayerHits(CARDS* player);
 //void printDealerHits(CARDS* dealer, CARDS* player);
 

@@ -6,7 +6,6 @@
 #include "StreamIO.h"
 #include "WinConditions.h"
 
-
 void Hit(HAND*, DECK*, int, int);
 void Stand(DECK*, HAND*, HAND);
 void Split(HAND*);

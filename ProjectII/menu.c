@@ -3,23 +3,22 @@
 #include"menu.h"
 
 void Menu(User* player, int mode) {
-	printf("  ********************************* \n");
-	printf(" *      Welcome to Blackjack,      *\n");
-	//printf("to");
-	printf(" *	    %s!	   \n", GetUsersName(*player));
-	printf("  ********************************* \n\n");
+	yellow();
+	printf(" ********************************* \n");
+	white();
+	printf("       Welcome to Blackjack,      \n");
+	cyan();
+	printf(" 	    %s!	   \n", GetUsersName(*player));
+	yellow();
+	printf(" ********************************* \n\n");
+	reset();
 
 	char option;
 	do {
 		printf("  **** MAIN ****\n\n");
 
-		//printf("  **** MAIN ****\n\n");
-		//add in do - while loop  --for return NULL
 		printf("a) Quick Play\n");
 		printf("b) Account Details\n");
-		//if (mode == TESTMODE) {
-		//	//printf("c) Change mode\n");
-		//}
 		printf("q) Quit\n");
 		printf("Enter your Choice: ");
 		switch (option = selectOption()) {

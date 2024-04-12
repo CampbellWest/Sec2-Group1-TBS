@@ -6,7 +6,6 @@
 #include "Cards.h"
 #include "Hand.h"
 
-
 #define CARD_H 12
 #define CARD_W 17 //16+1
 
@@ -25,11 +24,9 @@
 //
 //SCREEN NewScreen();
 
-
 //typedef struct image {
 //	char pixel[MAXPRINTCARD][MAXPRINTCARD];
 //}IMAGE;
-
 
 void clearScreen(int y, int height, int x, int width);
 int DrawACardFromDeck_A(CARD c, int, int);

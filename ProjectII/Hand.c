@@ -1,7 +1,5 @@
 #include "Hand.h"
 
-
-
 HAND NewHand() {
 	HAND h;
 	h.numberOfCards = 0;
@@ -24,7 +22,6 @@ void changeDrawMode(int m) {
 int getMode() {
 	return mode;
 }
-
 
 //draw card from deck
 bool DrawWithMode(HAND* h, DECK* d, int flag, int n) {
@@ -91,7 +88,6 @@ bool DrawWithMode(HAND* h, DECK* d, int flag, int n) {
 	return true;
 }
 
-
 bool Draw(HAND* h, DECK* d, int flag, int n) {
 	if (mode == TESTMODE) {  //dealer always have large card
 		//printf("testing\n");
@@ -108,8 +104,6 @@ bool Draw(HAND* h, DECK* d, int flag, int n) {
 	}
 	return DrawWithMode(h, d, flag, n);
 }
-
-
 
 int GetNumOfCards(HAND h) {
 	return h.numberOfCards;

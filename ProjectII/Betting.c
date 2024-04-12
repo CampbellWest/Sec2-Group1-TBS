@@ -17,10 +17,10 @@ void Stand(DECK* deck, HAND* dealer, HAND player)
 	dealerHits(deck, dealer, player);
 }
 
-void Split(HAND* player)
-{
-
-}
+//void Split(HAND* player)
+//{
+//
+//}
 
 bool VerifyBet(User player, int bet)
 {
@@ -73,8 +73,11 @@ int BlackJack(void) {
 	HAND player = NewHand();
 	HAND dealer = NewHand();
 
-	overPrint("Dealer:", 14, 0, 7);
-	overPrint("Player:", 29, 0, 7);
+	char* p = "\033[0;36mYour Hand:\033[0m\0";
+	char* d = "\033[0;31mDealer Hand:\033[0m\0";
+
+	overPrint(d, 14, 0, strlen(d));
+	overPrint(p, 29, 0, strlen(p));
 
 	Draw(&player, &deck, 0, 2);
 	Draw(&dealer, &deck, 0, 1);
@@ -88,8 +91,9 @@ int BlackJack(void) {
 		option = selectOption();
 		if (option == 'H' || option == 'h') {
 			if (Hit(&player, &deck, 0, 2)) {
-				if (player.hand_status == BUST && getMode() == SKYNET) {
-					drawBust();
+				if (player.hand_status == BUST) {
+					if (getMode() == SKYNET)
+						drawBust();
 					break;
 				}
 				else if (player.numberOfCards == MAX_CARDS) {//full hand win 4/10
@@ -101,10 +105,6 @@ int BlackJack(void) {
 				}else
 					continue;
 			}
-
-
-
-
 		}
 		if (option == 'S' || option == 's')
 			break;

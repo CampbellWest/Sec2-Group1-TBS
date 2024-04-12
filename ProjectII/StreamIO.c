@@ -6,7 +6,6 @@
 #include <string.h>
 #include <ctype.h>
 
-
 char selectOption() {
 	char letterChoice[MAXMENUREAD];
 	// 11 30
@@ -16,15 +15,11 @@ char selectOption() {
 	return letterChoice[0];
 }
 
-
-
 // read part of stream and store value to buffer
 // return int:  1 LINEFINISH finish reading a line,
 //				2 LINENOTEND buffer full but line not end,
 //				0 NOTREAD not read
 int ReadStream(char* buffer, int arr_size, FILE* fp) {
-
-
 
 	int read_status = NOTREAD; // not read yet, set read_status to 0
 
@@ -80,7 +75,6 @@ bool ReadLettersInStream(char* buffer, int size, FILE* fp) {
 		}
 	}
 	return pass_format_check;
-
 }
 
 // write to stream
@@ -96,9 +90,7 @@ bool WriteToOutput(char* buffer, FILE* fp) {
 		fprintf(fp, buffer);
 		is_write = true;
 	}
-
 	return is_write;
-
 }
 
 // remove trailing newline

@@ -43,9 +43,6 @@ void DisplayYX(int y, int x) {
     }
 }
 
-
-
-
 // 12 x 17
 char blank_card[CARD_H][CARD_W] =
 {
@@ -184,19 +181,14 @@ char suits[4][6][8 + 1] =
     }
 };
 
-
-
 int DrawACardFromDeck_A(CARD c, int num, int n) {
 
-    //
     HANDLE fd = GetStdHandle(STD_OUTPUT_HANDLE);
     CONSOLE_CURSOR_INFO cinfo;
     cinfo.bVisible = 0;
     cinfo.dwSize = 1;
     if (SetConsoleCursorInfo(fd, &cinfo))
         ;
-    //
-    
 
     //int cardX = 0, cardY = 0;
     //int amount = 1;
@@ -210,7 +202,6 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
 
     // 15 cards 20 x 20
     char images[MAXPRINTNUM][IMAGESIZE][IMAGESIZE] = { 0 };
-
 
     for (i = 0; i < image_h; i++) {
         if (c.suit == DIAMONDS)
@@ -238,16 +229,13 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
     else
         images[0][1][1] = c.value + 48; //2-9
 
-
     // blank
     for (i = 0; i < image_h; i++) {
         strcpy(images[1][i], blank_card[i]);
     }
 
-
     // from deck
     drawing_A(images[1], 0, 0, 0);
-
 
     clearScreen(0, CARD_H, 0, screen_w);
 
@@ -261,7 +249,6 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
     //    }
     //}
 
-
     //const int width = 60;
     //const int height = 40;
     //int x = 0, y = 0;
@@ -273,8 +260,6 @@ int DrawACardFromDeck_A(CARD c, int num, int n) {
 void printHand(HAND h) {
 
     for (int i = 0; i < h.numberOfCards; i++);
-
-
 }
 
 void printCardToScreen(char card[CARD_H][CARD_W], int y, int x) {
@@ -293,8 +278,6 @@ void printDeckToScreen(int y, int x) {
     }
 }
 
-
-
 void drawing_A(char image[IMAGESIZE][IMAGESIZE], int to_hand, int cardNum, int num_newline) {
     char p = ' ';
     //int amount = 1;
@@ -312,9 +295,7 @@ void drawing_A(char image[IMAGESIZE][IMAGESIZE], int to_hand, int cardNum, int n
     int is_finished = 0;
     //int is_blank_card = direction;
 
-
     while (!is_finished) {
-
 
         if (to_hand) {  //to user
             blank_space--;
@@ -324,7 +305,6 @@ void drawing_A(char image[IMAGESIZE][IMAGESIZE], int to_hand, int cardNum, int n
             blank_space++;
             cardNum = 0;
         }
-
 
         int printed_w = 0;
         int printed_h = num_newline;
@@ -374,15 +354,12 @@ void drawing_A(char image[IMAGESIZE][IMAGESIZE], int to_hand, int cardNum, int n
     }
 }
 
-
-
 void overPrint(char* content, int y, int x, int length) {
 
     for (int j = 0; j < length; j++) {
         screen[y][j + x] = content[j];
     }
 }
-
 
 // 4/10
 char skull[20][45] = {
@@ -408,15 +385,12 @@ char skull[20][45] = {
 "?MXT@Wx.~    :     ~\"##*$$$$M~              \0"
 };
 
-
-
 /* draw image*/
 void draw_big_image() {
     //for (int i = 0; i < 20; i++) {
     //    printf(Skull[i]);
     //    printf("\n");
     //}
-
 
     char p = ' ';
     //int amount = 1;
@@ -425,12 +399,9 @@ void draw_big_image() {
     int is_finished = 0;
     //int is_blank_card = direction;
 
-
     while (!is_finished) {
 
-
         blank_space--;
-
 
         int printed_w = 0;
         int printed_h = 0;
@@ -440,7 +411,6 @@ void draw_big_image() {
         }
 
         clearScreen(0, CARD_H, 0, CARD_W);
-
 
         for (int i = 0; i < 20; i++) { //row
 
@@ -493,7 +463,6 @@ char nuclear[BOMB][44] = {
 "           _____.,-# % &$@ % # & #~,._____\n"
 };
 
-
 void drawBust() {
     Sleep(500);
     clearScreen(0,0,0,0);
@@ -508,4 +477,3 @@ void drawBust() {
         Sleep(200);
     }
 }
-
