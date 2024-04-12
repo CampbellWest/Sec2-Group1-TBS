@@ -24,7 +24,10 @@ int main(int argc, char* argv[]) {
         if (m == SKYNET) {
             //drawBust();
             draw_big_image();
-            printf("\n\n    SKYNET AI ACTIVATED\n\n");
+            Sleep(2000);
+            red();
+            printf("\n\n        SKYNET AI ACTIVATED\n\n");
+            reset();
             Sleep(2000);
         }
     }

@@ -40,21 +40,22 @@ void UpdateFile(User player)
 	fclose(fp);
 }
 
+// redundant
 bool VerifyName(char name[])
 {
-	for (int i = 0; i < MAXNAME; i++) {
-		if (isdigit(strlen(name)))
-			return false;
-	}
+	//for (int i = 0; i < MAXNAME; i++) {
+	//	if (isdigit(strlen(name)))
+	//		return false;
+	//}
 
 	return true;
 }
+//
 
 char* CreateAccountName(void)
 {
 	char name[MAXNAME];
 	do {
-		printf("The name for your account must not include spaces.\n");
 		printf("Please enter a name for your account: ");
 		ReadStream(name, MAXNAME, stdin);
 	} while (!VerifyName(name));
@@ -65,7 +66,7 @@ char* CreateAccountName(void)
 User CreateUserFromFile(FILE* fp)
 {
 	char name[MAXNAME];
-	fscanf(fp, "%s\n", &name);
+	ReadStream(name, MAXNAME, fp);
 
 	unsigned int balance;
 	fscanf(fp, "%u\n", &balance);

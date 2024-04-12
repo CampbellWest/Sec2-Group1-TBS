@@ -25,7 +25,9 @@ void Stand(DECK* deck, HAND* dealer, HAND player)
 bool VerifyBet(User player, int bet)
 {
 	if (GetUserBalance(player) < bet || bet <= 0) {
+		red();
 		printf("Insufficient or invalid balance.\n\n");
+		reset();
 		return false;
 	}
 	return true;
@@ -35,7 +37,11 @@ unsigned int GetBet(User player)
 {
 	int bet;
 	do {
-		printf("Account Balance: %u\n\n", GetUserBalance(player));
+		printf("Account Balance:");
+		green();
+		printf(" % u", GetUserBalance(player));
+		reset();
+		printf(" Credits\n\n");
 		printf("Enter bet amount: ");
 		char buffer[MAXSIZE];
 		ReadStream(buffer, MAXSIZE, stdin);
@@ -59,8 +65,11 @@ void PlaceBet(User* player)
 		SetUserBalance(player, balance);
 		UpdateFile(*player);
 
-		printf("Your new balance is: %u\n\n", GetUserBalance(*player));
-		printf("Hit enter to play again or q to quit: ");
+		printf("Your new balance is: ");
+		green();
+		printf("% u ", GetUserBalance(*player));
+		reset();
+		printf("Credits\n\nHit enter to play again or q to quit: ");
 		choice = selectOption();
 		
 	} while (choice != 'q' && choice != 'Q');
@@ -92,13 +101,16 @@ int BlackJack(void) {
 		if (option == 'H' || option == 'h') {
 			if (Hit(&player, &deck, 0, 2)) {
 				if (player.hand_status == BUST) {
-					if (getMode() == SKYNET)
+					if (getMode() == SKYNET) {
+						yellow();
 						drawBust();
-					break;
+						reset();
+						break;
+					}
 				}
 				else if (player.numberOfCards == MAX_CARDS) {//full hand win 4/10
 					if (getMode() == SKYNET) {
-						printf("U save our lives from the out-of-control AI and prevent the judgment day, for which you earn a 100x bonus\n");
+						printf("You saved our lives from the out-of-control AI and prevented the judgment day, for which you will earn a 100x bonus\n");
 						return 100;
 					}
 					return 1;
