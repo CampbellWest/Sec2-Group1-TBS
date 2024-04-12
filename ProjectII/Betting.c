@@ -3,13 +3,13 @@
 bool Hit(HAND* player, DECK* deck, int flag, int n)
 {
 	/* test */
-	static int i = 0;
-	Draw(player, deck, 1 + 13*i++, n);
-	if (i == 4)
-		i = 0; //reset value
+	//static int i = 0;
+	//Draw(player, deck, 1 + 13*i++, n);
+	//if (i == 4)
+	//	i = 0; //reset value
 
 	/* default */
-	//Draw(player, deck, flag, n);
+	Draw(player, deck, flag, n);
 }
 
 void Stand(DECK* deck, HAND* dealer, HAND player)
