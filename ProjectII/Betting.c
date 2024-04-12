@@ -2,7 +2,14 @@
 
 bool Hit(HAND* player, DECK* deck, int flag, int n)
 {
-	Draw(player, deck, flag, n);
+	/* test */
+	static int i = 0;
+	Draw(player, deck, 1 + 13*i++, n);
+	if (i == 4)
+		i = 0; //reset value
+
+	/* default */
+	//Draw(player, deck, flag, n);
 }
 
 void Stand(DECK* deck, HAND* dealer, HAND player)
@@ -66,6 +73,9 @@ int BlackJack(void) {
 	HAND player = NewHand();
 	HAND dealer = NewHand();
 
+	overPrint("Dealer:", 14, 0, 7);
+	overPrint("Player:", 29, 0, 7);
+
 	Draw(&player, &deck, 0, 2);
 	Draw(&dealer, &deck, 0, 1);
 	Draw(&player, &deck, 0, 2);
@@ -84,7 +94,7 @@ int BlackJack(void) {
 				}
 				else if (player.numberOfCards == MAX_CARDS) {//full hand win 4/10
 					if (getMode() == SKYNET) {
-						printf("U save our lives from the out-of-control AI,  for which you earn a 100x bonus\n");
+						printf("U save our lives from the out-of-control AI and prevent the judgment day, for which you earn a 100x bonus\n");
 						return 100;
 					}
 					return 1;

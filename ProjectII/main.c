@@ -5,6 +5,13 @@
 
 #include "Animation.h"
 
+// command line argv used for mode
+// DEFAULTMODE - 0
+// TESTMODE - 1  also dealer win mode
+// WINMODE - 2  user ez win
+// SKYNET - 3
+
+
 int main(int argc, char* argv[]) {
 
 
