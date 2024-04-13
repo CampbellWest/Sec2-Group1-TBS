@@ -9,13 +9,6 @@ MULTIPLIER pickWinner(HAND dealer, HAND player) {
         return LOSS;
     }
 
-    if (dealer.hand_status == BUST) {
-        green();
-        printf("You won!\n");
-        reset();
-        return WIN;
-    }
-
     if (player.hand_status == BLACKJACK) {
         if (dealer.hand_status == BLACKJACK) {
             yellow();
@@ -31,6 +24,13 @@ MULTIPLIER pickWinner(HAND dealer, HAND player) {
         printf("*\n **************\n");
         reset();
         return SPECIAL_WIN;
+    }
+
+    if (dealer.hand_status == BUST) {
+        green();
+        printf("You won!\n");
+        reset();
+        return WIN;
     }
     else if (dealer.hand_status == BLACKJACK) {
         red();
