@@ -41,11 +41,16 @@ unsigned int GetBet(User player)
 		green();
 		printf(" % u", GetUserBalance(player));
 		reset();
-		printf(" Credits\n\n");
+		printf(" Credits\n");
+		yellow();
+		printf("****************************\n");
+		reset();
 		printf("Enter bet amount: ");
+		green();
 		char buffer[MAXSIZE];
 		ReadStream(buffer, MAXSIZE, stdin);
-		bet = atoi(buffer);
+		bet = atoi(buffer); 
+		reset();
 		clearScreen(0, screen_h, 0, screen_w);
 
 	} while (!VerifyBet(player, bet));
@@ -83,7 +88,7 @@ int BlackJack(void) {
 	HAND dealer = NewHand();
 
 	char* p = "\033[0;36mYour Hand:\033[0m\0";
-	char* d = "\033[0;31mDealer Hand:\033[0m\0";
+	char* d = "\033[0;31mDealer's Hand:\033[0m\0";
 
 	overPrint(d, 14, 0, strlen(d));
 	overPrint(p, 29, 0, strlen(p));

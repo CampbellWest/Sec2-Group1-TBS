@@ -15,7 +15,14 @@ void Menu(User* player, int mode) {
 
 	char option;
 	do {
-		printf("   **** MAIN ****\n\n");
+		red();
+		printf("   ***************\n   **");
+		reset();
+		printf(" MAIN MENU ");
+		red();
+		printf("**\n   ***************\n");
+		reset();
+		//printf("   **** MAIN ****\n\n");
 
 		printf(" a) Quick Play\n");
 		printf(" b) Account Details\n");

@@ -4,7 +4,7 @@ MULTIPLIER pickWinner(HAND dealer, HAND player) {
 
     if (player.hand_status == BUST){
         red();
-        printf("You lost! :(\n");
+        printf("\nYou lost! :(\n");
         reset();
         return LOSS;
     }
