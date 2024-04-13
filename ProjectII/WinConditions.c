@@ -18,11 +18,17 @@ MULTIPLIER pickWinner(HAND dealer, HAND player) {
 
     if (player.hand_status == BLACKJACK) {
         if (dealer.hand_status == BLACKJACK) {
+            yellow();
             printf("Push! :/\n");
+            reset();
             return TIE;
         }
-        black();
-        printf("BLACKJACK!\n");
+        yellow();
+        printf(" **************\n *");
+        reset();
+        printf(" BLACKJACK! ");
+        yellow();
+        printf("*\n **************\n");
         reset();
         return SPECIAL_WIN;
     }
@@ -34,7 +40,9 @@ MULTIPLIER pickWinner(HAND dealer, HAND player) {
     }
     else {
         if (dealer.totalCardValue == player.totalCardValue) {
+            yellow();
             printf("Push! :/\n");
+            reset();
             return TIE;
         }
         else if (dealer.totalCardValue > player.totalCardValue) {

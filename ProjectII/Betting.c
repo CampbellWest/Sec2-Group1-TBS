@@ -95,18 +95,19 @@ int BlackJack(void) {
 	char option;
 	while (true) {
 
+		if (player.hand_status == BLACKJACK)
+			break;
+
 		printf("Your card value: %d\n", player.totalCardValue);
 		printf("Hit or Stand? (H/S): ");
 		option = selectOption();
 		if (option == 'H' || option == 'h') {
 			if (Hit(&player, &deck, 0, 2)) {
 				if (player.hand_status == BUST) {
-					if (getMode() == SKYNET) {
-						yellow();
-						drawBust();
-						reset();
-						break;
-					}
+					yellow();
+					drawBust();
+					reset();
+					break;
 				}
 				else if (player.numberOfCards == MAX_CARDS) {//full hand win 4/10
 					if (getMode() == SKYNET) {
@@ -121,7 +122,7 @@ int BlackJack(void) {
 		if (option == 'S' || option == 's')
 			break;
 	}
-	if (player.hand_status == NOTBUST)
+	if (player.hand_status == NOTBUST || player.hand_status == BLACKJACK)
 		Stand(&deck, &dealer, player);
 
 	return pickWinner(dealer, player);
